@@ -21,9 +21,10 @@ function getComputerChoice() {
     }
 };
 
-function playRound(playerSelection, computerSelection){
+function playRound(playerSelection){
 
     // playerSelection = playerSelection.toLowerCase();
+    let computerSelection = getComputerChoice();
     console.log(`Player: ${playerSelection} || PC: ${computerSelection}`);
 
     switch (playerSelection.toLowerCase()) {
@@ -99,9 +100,9 @@ const rockButton = document.querySelector('#rock-btn');
 const paperButton = document.querySelector('#paper-btn');
 const scissorButton = document.querySelector('#scissor-btn');
 
-rockButton.addEventListener('click', playRound('rock', getComputerChoice()));
-paperButton.addEventListener('click', playRound('paper', getComputerChoice()));
-scissorButton.addEventListener('click', playRound('scissor', getComputerChoice()));
+rockButton.addEventListener('click', playRound('rock'));
+paperButton.addEventListener('click', playRound('paper'));
+scissorButton.addEventListener('click', playRound('scissor'));
 
 
 
