@@ -110,6 +110,8 @@ const score = document.createElement('p');
 resultDisplay.appendChild(resultMessage);
 resultDisplay.appendChild(score);
 
+resultMessage.textContent = "The Game Score Will Appear Here";
+
 let playerScore = 0;
 let computerScore = 0;
 
