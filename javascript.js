@@ -75,22 +75,56 @@ function playGame(){
     let output = '';
     let playerInput = '';
     
-
-    for(let i = 0; i < 5; i++){
-        playerInput = prompt("Choose Rock, Paper or Scissor!");
-        console.log((output = playRound(playerInput, getComputerChoice())));
+    // *** 5 Rounds Logic ***
+    // for(let i = 0; i < 5; i++){
+    //     playerInput = prompt("Choose Rock, Paper or Scissor!");
+    //     console.log((output = playRound(playerInput, getComputerChoice())));
 
     
-        if(output.startsWith("You Won!")) playerScore++;
-        if(output.startsWith("It's a Draw!")) continue;
-        if(output.startsWith("You Lose!")) computerScore++;
+    //     if(output.startsWith("You Won!")) playerScore++;
+    //     if(output.startsWith("It's a Draw!")) continue;
+    //     if(output.startsWith("You Lose!")) computerScore++;
     
-    }
+    // }
 
     if(playerScore > computerScore) return `Player Won the Game! Congratulations!`;
     if(playerScore < computerScore) return `Computer Won the Game! Congratulations!`;
     if(playerScore === computerScore) return `It's a Draw! Nobody Won the Game`;
 
 }
+
+
+
+const rockButton = document.querySelector('#rock-btn');
+const paperButton = document.querySelector('#paper-btn');
+const scissorButton = document.querySelector('#scissor-btn');
+
+rockButton.addEventListener('click', playRound('rock', getComputerChoice()));
+paperButton.addEventListener('click', playRound('paper', getComputerChoice()));
+scissorButton.addEventListener('click', playRound('scissor', getComputerChoice()));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 console.log(playGame());
