@@ -25,6 +25,7 @@ function playRound(playerSelection){
 
     // playerSelection = playerSelection.toLowerCase();
     let computerSelection = getComputerChoice();
+    console.log(`Player selected ${playerSelection}`);
     console.log(`Player: ${playerSelection} || PC: ${computerSelection}`);
 
     switch (playerSelection.toLowerCase()) {
@@ -96,13 +97,85 @@ function playGame(){
 
 
 
+
 const rockButton = document.querySelector('#rock-btn');
 const paperButton = document.querySelector('#paper-btn');
 const scissorButton = document.querySelector('#scissor-btn');
 
-rockButton.addEventListener('click', playRound('rock'));
-paperButton.addEventListener('click', playRound('paper'));
-scissorButton.addEventListener('click', playRound('scissor'));
+const resultDisplay = document.querySelector('.result-div');
+
+const resultMessage = document.createElement('p');
+const score = document.createElement('p');
+
+resultDisplay.appendChild(resultMessage);
+resultDisplay.appendChild(score);
+
+let playerScore = 0;
+let computerScore = 0;
+
+
+rockButton.addEventListener('click', result => {
+    result = playRound('rock');
+    resultMessage.textContent = result;
+
+    if(result.startsWith('You W')) playerScore++;
+    if(result.startsWith('You L')) computerScore++; 
+    
+    score.textContent = `Player: ${playerScore} Points || Computer: ${computerScore} Points`;
+
+    if(playerScore === 5) {
+        score.textContent = 'You Won the game! Congratulations!';
+        playerScore = 0;
+        computerScore = 0;
+    }
+    if(computerScore === 5) {
+        score.textContent = 'Game Over, You Lost the game!';        
+        playerScore = 0;
+        computerScore = 0;
+    }
+});
+
+paperButton.addEventListener('click', result => {
+    result = playRound('paper');
+    resultMessage.textContent = result;
+
+    if(result.startsWith('You W')) playerScore++;
+    if(result.startsWith('You L')) computerScore++;
+
+    score.textContent = `Player: ${playerScore} Points || Computer: ${computerScore} Points`;
+
+    if(playerScore === 5) {
+        score.textContent = 'You Won the game! Congratulations!';
+        playerScore = 0;
+        computerScore = 0;
+    }
+    if(computerScore === 5) {
+        score.textContent = 'Game Over, You Lost the game!';        
+        playerScore = 0;
+        computerScore = 0;
+    }
+});
+
+scissorButton.addEventListener('click', result => {
+    result = playRound('scissor');
+    resultMessage.textContent = result;
+
+    if(result.startsWith('You W')) playerScore++;
+    if(result.startsWith('You L')) computerScore++;
+
+    score.textContent = `Player: ${playerScore} Points || Computer: ${computerScore} Points`;
+
+    if(playerScore === 5) {
+        score.textContent = 'You Won the game! Congratulations!';
+        playerScore = 0;
+        computerScore = 0;
+    }
+    if(computerScore === 5) {
+        score.textContent = 'Game Over, You Lost the game!';        
+        playerScore = 0;
+        computerScore = 0;
+    }
+});
 
 
 
@@ -127,5 +200,4 @@ scissorButton.addEventListener('click', playRound('scissor'));
 
 
 
-
-console.log(playGame());
+// console.log(playGame());
